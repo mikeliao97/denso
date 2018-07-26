@@ -1,0 +1,11 @@
+controller_list:
+  - name: /vs060/position_trajectory_controller/
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory 
+    joints:
+      - j1
+      - j2
+      - j3
+      - j4
+      - j5
+      - flange

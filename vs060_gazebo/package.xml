@@ -14,7 +14,8 @@
   <url type="website">http://wiki.ros.org/vs060_gazebo</url>
 
   <buildtool_depend>catkin</buildtool_depend>
-
+	
+  <build_depend>gazebo_ros</build_depend>
   <run_depend>controller_manager</run_depend>
   <run_depend>gazebo_ros</run_depend> 
   <run_depend>vs060</run_depend>
