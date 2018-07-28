@@ -4,6 +4,6 @@
 
 
     <!-- Start Moveit simulator -->
-    <include file="$(find vs060_newmoveit_config)/launch/myrobot_planning_execution.launch" />
+    <!-- <include file="$(find vs060_newmoveit_config)/launch/myrobot_planning_execution.launch" /> -->
 
 </launch>
