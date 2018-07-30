@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+alias killgazebo="killall -9 gazebo & killall -9 gzserver  & killall -9 gzclient"
+   
+alias killros="killall -9 rosmaster & killall -9 roscore"
+
+
+alias killboth="killgazebo & killros"
