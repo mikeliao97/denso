@@ -1,0 +1,1993 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>1.25006 -1.02558 4.66669 0 1.38876 2.95422</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='denso'>
+      <link name='BASE'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>1000</mass>
+          <inertia>
+            <ixx>20</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>20</iyy>
+            <iyz>0</iyz>
+            <izz>20</izz>
+          </inertia>
+        </inertial>
+        <collision name='BASE_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/BASE_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='BASE_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/BASE_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Black</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='fixed' type='revolute'>
+        <child>BASE</child>
+        <parent>world</parent>
+        <axis>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+      <link name='link_1'>
+        <pose frame=''>0 0 0.182 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.013885 -0.005997 0.043991 0 -0 0</pose>
+          <mass>4.327</mass>
+          <inertia>
+            <ixx>0.025492</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.032502</iyy>
+            <iyz>-3.26672e-18</iyz>
+            <izz>0.01779</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_1_collision'>
+          <pose frame=''>0 0 0.182 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J1_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link_1_visual'>
+          <pose frame=''>0 0 0.182 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J1_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Orange</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j1' type='revolute'>
+        <child>link_1</child>
+        <parent>BASE</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-2.96706</lower>
+            <upper>2.96706</upper>
+            <effort>19.7336</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='link_2'>
+        <pose frame=''>0 0 0.345 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.015837 -0.073696 0.010087 0 -0 0</pose>
+          <mass>9.475</mass>
+          <inertia>
+            <ixx>0.108024</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.025579</iyy>
+            <iyz>1.93827e-17</iyz>
+            <izz>0.112871</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_2_collision'>
+          <pose frame=''>0 0 0.163 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J2_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link_2_visual'>
+          <pose frame=''>0 0 0.163 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J2_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Orange</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j2' type='revolute'>
+        <child>link_2</child>
+        <parent>link_1</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-2.0944</lower>
+            <upper>2.0944</upper>
+            <effort>40.8447</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='link_3'>
+        <pose frame=''>0 0 0.65 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.011544 -0.057408 0.006203 0 -0 0</pose>
+          <mass>4.097</mass>
+          <inertia>
+            <ixx>0.015999</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00638</iyy>
+            <iyz>2.33191e-18</iyz>
+            <izz>0.016882</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_3_collision'>
+          <pose frame=''>0 0 0.305 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J3_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link_3_visual'>
+          <pose frame=''>0 0 0.305 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J3_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Orange</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j3' type='revolute'>
+        <child>link_3</child>
+        <parent>link_2</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-2.18166</lower>
+            <upper>2.70526</upper>
+            <effort>20.7089</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='link_4'>
+        <pose frame=''>-0.01 0 0.815 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.003998 -0.004975 0.052919 0 -0 0</pose>
+          <mass>1.779</mass>
+          <inertia>
+            <ixx>0.005106</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.005266</iyy>
+            <iyz>-5.87308e-19</iyz>
+            <izz>0.002621</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_4_collision'>
+          <pose frame=''>-0.01 0 0.165 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J4_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link_4_visual'>
+          <pose frame=''>-0.01 0 0.165 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J4_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Orange</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j4' type='revolute'>
+        <child>link_4</child>
+        <parent>link_3</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.14</lower>
+            <upper>3.14</upper>
+            <effort>28</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='link_5'>
+        <pose frame=''>-0.01 0 0.95 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.011902 -0.004739 0.010398 0 -0 0</pose>
+          <mass>1.219</mass>
+          <inertia>
+            <ixx>0.111173</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.111173</iyy>
+            <iyz>0</iyz>
+            <izz>0.21942</izz>
+          </inertia>
+        </inertial>
+        <collision name='link_5_collision'>
+          <pose frame=''>0 0 0.135 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J5_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='link_5_visual'>
+          <pose frame=''>0 0 0.135 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/J5_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Orange</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='j5' type='revolute'>
+        <child>link_5</child>
+        <parent>link_4</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-2.0944</lower>
+            <upper>2.0944</upper>
+            <effort>28</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Flange'>
+        <pose frame=''>-0.01 0 1.02 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>5.6e-05 0.036617 0.074006 0 -0 0</pose>
+          <mass>0.365615</mass>
+          <inertia>
+            <ixx>0.01829</ixx>
+            <ixy>4.79553e-06</ixy>
+            <ixz>2.43246e-06</ixz>
+            <iyy>0.0177301</iyy>
+            <iyz>-0.000358864</iyz>
+            <izz>0.0346753</izz>
+          </inertia>
+        </inertial>
+        <collision name='Flange_collision'>
+          <pose frame=''>0 0 0.07 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/Flange_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='Flange_fixed_joint_lump__H1_base_link_collision_1'>
+          <pose frame=''>0 0 -0.0005 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/palm_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='Flange_visual'>
+          <pose frame=''>0 0 0.07 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/denso/vs060/model/meshes/Flange_mesh.stl</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Orange</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='Flange_fixed_joint_lump__H1_base_link_visual_1'>
+          <pose frame=''>0 0 -0.0005 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/palm_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='Flange_fixed_joint_lump__H1_F1_palm_link_visual_2'>
+          <pose frame=''>-0.045 -0.025981 -0.0005 0 -0 2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_palm_link.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='Flange_fixed_joint_lump__H1_F2_palm_link_visual_3'>
+          <pose frame=''>0 0.029019 -0.0005 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_palm_link.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='Flange_fixed_joint_lump__H1_F3_palm_link_visual_4'>
+          <pose frame=''>0.045 -0.025981 -0.0005 0 0 -2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_palm_link.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <velocity_decay/>
+        <velocity_decay/>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='flange' type='revolute'>
+        <child>Flange</child>
+        <parent>link_5</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-6.28319</lower>
+            <upper>6.28319</upper>
+            <effort>28</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='H1_F1_base_link'>
+        <pose frame=''>-0.055 -0.025981 1.01967 0 -0 2.3786</pose>
+        <inertial>
+          <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
+          <mass>0.174652</mass>
+          <inertia>
+            <ixx>0.000298373</ixx>
+            <ixy>-5.05752e-07</ixy>
+            <ixz>1.94983e-07</ixz>
+            <iyy>0.00029963</iyy>
+            <iyz>2.79565e-05</iyz>
+            <izz>0.00013489</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F1_base_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F1_base_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F1J1' type='revolute'>
+        <child>H1_F1_base_link</child>
+        <parent>Flange</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-0.785398</lower>
+            <upper>0.785398</upper>
+            <effort>50</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F1_link_1'>
+        <pose frame=''>-0.079188 -0.051278 1.1365 0.070695 -0 2.3786</pose>
+        <inertial>
+          <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
+          <mass>0.082776</mass>
+          <inertia>
+            <ixx>4.6107e-05</ixx>
+            <ixy>7.47741e-08</ixy>
+            <ixz>-2.25165e-07</ixz>
+            <iyy>5.27678e-05</iyy>
+            <iyz>-3.64603e-07</iyz>
+            <izz>2.896e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F1_link_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F1_link_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F1J2' type='revolute'>
+        <child>H1_F1_link_1</child>
+        <parent>H1_F1_base_link</parent>
+        <axis>
+          <xyz>-0.722772 0.691086 0</xyz>
+          <limit>
+            <lower>-1.39626</lower>
+            <upper>1.0472</upper>
+            <effort>50</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F1_link_2'>
+        <pose frame=''>-0.076259 -0.048215 1.19635 0.06383 -0 2.3786</pose>
+        <inertial>
+          <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
+          <mass>0.0360682</mass>
+          <inertia>
+            <ixx>1.45995e-05</ixx>
+            <ixy>-5.02031e-08</ixy>
+            <ixz>-1.65836e-07</ixz>
+            <iyy>1.46464e-05</iyy>
+            <iyz>-2.25421e-07</iyz>
+            <izz>4.03881e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F1_link_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='H1_F1_link_2_fixed_joint_lump__H1_F1_tip_collision_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/omd-d18-tip.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F1_link_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='H1_F1_link_2_fixed_joint_lump__H1_F1_tip_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/omd-d18-tip.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F1J3' type='revolute'>
+        <child>H1_F1_link_2</child>
+        <parent>H1_F1_link_1</parent>
+        <axis>
+          <xyz>-0.722772 0.691086 0</xyz>
+          <limit>
+            <lower>-1.0472</lower>
+            <upper>1.5708</upper>
+            <effort>50</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F2_base_link'>
+        <pose frame=''>-0.01 0.029019 1.01967 0 -0 0.022402</pose>
+        <inertial>
+          <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
+          <mass>0.174652</mass>
+          <inertia>
+            <ixx>0.000298373</ixx>
+            <ixy>-5.05752e-07</ixy>
+            <ixz>1.94983e-07</ixz>
+            <iyy>0.00029963</iyy>
+            <iyz>2.79565e-05</iyz>
+            <izz>0.00013489</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F2_base_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F2_base_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F2J1' type='revolute'>
+        <child>H1_F2_base_link</child>
+        <parent>Flange</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-0.785398</lower>
+            <upper>0.785398</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F2_link_1'>
+        <pose frame=''>-0.010784 0.06401 1.1365 0.070695 0 0.022402</pose>
+        <inertial>
+          <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
+          <mass>0.082776</mass>
+          <inertia>
+            <ixx>4.6107e-05</ixx>
+            <ixy>7.47741e-08</ixy>
+            <ixz>-2.25165e-07</ixz>
+            <iyy>5.27678e-05</iyy>
+            <iyz>-3.64603e-07</iyz>
+            <izz>2.896e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F2_link_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F2_link_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F2J2' type='revolute'>
+        <child>H1_F2_link_1</child>
+        <parent>H1_F2_base_link</parent>
+        <axis>
+          <xyz>0.999749 0.0224 0</xyz>
+          <limit>
+            <lower>-1.39626</lower>
+            <upper>1.0472</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F2_link_2'>
+        <pose frame=''>-0.010689 0.059773 1.19635 0.06383 -0 0.022402</pose>
+        <inertial>
+          <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
+          <mass>0.0360682</mass>
+          <inertia>
+            <ixx>1.45995e-05</ixx>
+            <ixy>-5.02031e-08</ixy>
+            <ixz>-1.65836e-07</ixz>
+            <iyy>1.46464e-05</iyy>
+            <iyz>-2.25421e-07</iyz>
+            <izz>4.03881e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F2_link_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='H1_F2_link_2_fixed_joint_lump__H1_F2_tip_collision_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/omd-d18-tip.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F2_link_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='H1_F2_link_2_fixed_joint_lump__H1_F2_tip_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/omd-d18-tip.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F2J3' type='revolute'>
+        <child>H1_F2_link_2</child>
+        <parent>H1_F2_link_1</parent>
+        <axis>
+          <xyz>0.999749 0.0224 0</xyz>
+          <limit>
+            <lower>-1.0472</lower>
+            <upper>1.5708</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F3_base_link'>
+        <pose frame=''>0.035 -0.025981 1.01967 -0 -0 -2.3338</pose>
+        <inertial>
+          <pose frame=''>-0.000143 0.026569 0.053875 0 -0 0</pose>
+          <mass>0.174652</mass>
+          <inertia>
+            <ixx>0.000298373</ixx>
+            <ixy>-5.05752e-07</ixy>
+            <ixz>1.94983e-07</ixz>
+            <iyy>0.00029963</iyy>
+            <iyz>2.79565e-05</iyz>
+            <izz>0.00013489</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F3_base_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F3_base_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_base_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F3J1' type='revolute'>
+        <child>H1_F3_base_link</child>
+        <parent>Flange</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-0.785398</lower>
+            <upper>0.785398</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F3_link_1'>
+        <pose frame=''>0.060297 -0.050169 1.1365 0.070695 -0 -2.3338</pose>
+        <inertial>
+          <pose frame=''>-0.000142 -0.001354 0.027761 0 -0 0</pose>
+          <mass>0.082776</mass>
+          <inertia>
+            <ixx>4.6107e-05</ixx>
+            <ixy>7.47741e-08</ixy>
+            <ixz>-2.25165e-07</ixz>
+            <iyy>5.27678e-05</iyy>
+            <iyz>-3.64603e-07</iyz>
+            <izz>2.896e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F3_link_1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F3_link_1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_prox_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F3J2' type='revolute'>
+        <child>H1_F3_link_1</child>
+        <parent>H1_F3_base_link</parent>
+        <axis>
+          <xyz>-0.691094 -0.722765 0</xyz>
+          <limit>
+            <lower>-1.39626</lower>
+            <upper>1.0472</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <link name='H1_F3_link_2'>
+        <pose frame=''>0.057234 -0.04724 1.19635 0.06383 0 -2.3338</pose>
+        <inertial>
+          <pose frame=''>0.000147 -0.001929 0.020669 0 -0 0</pose>
+          <mass>0.0360682</mass>
+          <inertia>
+            <ixx>1.45995e-05</ixx>
+            <ixy>-5.02031e-08</ixy>
+            <ixz>-1.65836e-07</ixz>
+            <iyy>1.46464e-05</iyy>
+            <iyz>-2.25421e-07</iyz>
+            <izz>4.03881e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='H1_F3_link_2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='H1_F3_link_2_fixed_joint_lump__H1_F3_tip_collision_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/omd-d18-tip.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <kp>1e+06</kp>
+                <kd>100</kd>
+                <max_vel>1</max_vel>
+                <min_depth>0.002</min_depth>
+              </ode>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1.5</mu>
+                <mu2>1.5</mu2>
+                <fdir1>1 0 0</fdir1>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='H1_F3_link_2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/v2/finger_dist_link_simple.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='H1_F3_link_2_fixed_joint_lump__H1_F3_tip_visual_1'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aquifi/catkin_ws/src/smart_grasp_env/fh_desc/meshes/omd-d18-tip.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/DarkGrey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='H1_F3J3' type='revolute'>
+        <child>H1_F3_link_2</child>
+        <parent>H1_F3_link_1</parent>
+        <axis>
+          <xyz>-0.691094 -0.722765 0</xyz>
+          <limit>
+            <lower>-1.0472</lower>
+            <upper>1.5708</upper>
+            <effort>30</effort>
+            <velocity>1</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+        <physics>
+          <ode>
+            <implicit_spring_damper>1</implicit_spring_damper>
+            <cfm_damping>1</cfm_damping>
+            <limit>
+              <cfm>0</cfm>
+              <erp>0.2</erp>
+            </limit>
+          </ode>
+        </physics>
+      </joint>
+      <static>0</static>
+      <plugin name='gazebo_ros_control' filename='libgazebo_ros_control.so'>
+        <robotNamespace>/vs060</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+    <model name='coke_can'>
+      <link name='link'>
+        <inertial>
+          <pose frame=''>-0.01 -0.012 0.15 0 -0 0</pose>
+          <mass>0.39</mass>
+          <inertia>
+            <ixx>0.00058</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00058</iyy>
+            <iyz>0</iyz>
+            <izz>0.00019</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <pose frame=''>0 0 -0.46 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://coke_can/meshes/coke_can.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1e+07</kp>
+                <kd>1</kd>
+                <min_depth>0.001</min_depth>
+                <max_vel>0.1</max_vel>
+              </ode>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <pose frame=''>0 0 -0.46 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://coke_can/meshes/coke_can.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0.135841 -0.681546 0 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>477 733000000</sim_time>
+      <real_time>178 580048450</real_time>
+      <wall_time>1533072123 817326579</wall_time>
+      <iterations>175424</iterations>
+      <model name='coke_can'>
+        <pose frame=''>-0.022736 -0.527306 -0.004728 -0.024017 0.00312 0.001067</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-0.022736 -0.527306 -0.004728 -0.024017 0.00312 0.001067</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-3.1e-05 0.000241 -3.5e-05 -0.001625 -0.000238 -0.000301</acceleration>
+          <wrench>-1.2e-05 9.4e-05 -1.4e-05 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='denso'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='BASE'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 7e-06 3.3e-05 -2.2e-05 -0.000388</acceleration>
+          <wrench>0.000184 -0.000187 0.007363 0 -0 0</wrench>
+        </link>
+        <link name='Flange'>
+          <pose frame=''>-0.010003 -2e-06 1.02 0 -9e-06 1e-06</pose>
+          <velocity>-0.000274 1e-06 -5e-06 -2e-06 -0.000851 0.000124</velocity>
+          <acceleration>-0.34186 0.001478 -0.004583 -0.002226 -0.851168 0.124066</acceleration>
+          <wrench>-0.124989 0.00054 -0.001676 0 -0 0</wrench>
+        </link>
+        <link name='H1_F1_base_link'>
+          <pose frame=''>-0.055003 -0.025982 1.01967 -6e-06 8e-06 2.3786</pose>
+          <velocity>-0.000271 -4e-06 -4.3e-05 -2e-06 -0.000852 9.4e-05</velocity>
+          <acceleration>-0.314906 -0.005832 -0.058329 -0.012752 -0.857217 -0.211995</acceleration>
+          <wrench>-0.054999 -0.001018 -0.010187 0 -0 0</wrench>
+        </link>
+        <link name='H1_F1_link_1'>
+          <pose frame=''>-0.079192 -0.051279 1.1365 0.070689 8e-06 2.3786</pose>
+          <velocity>-0.000368 -6e-06 -6.3e-05 -4.8e-05 -0.000808 9.4e-05</velocity>
+          <acceleration>-0.390461 -0.004704 -0.06154 0.012201 -0.861894 0.071742</acceleration>
+          <wrench>-0.032321 -0.000389 -0.005094 0 -0 0</wrench>
+        </link>
+        <link name='H1_F1_link_2'>
+          <pose frame=''>-0.076264 -0.048216 1.19635 0.063823 8e-06 2.3786</pose>
+          <velocity>-0.000417 -3e-06 -6.1e-05 -4e-06 -0.00085 9.4e-05</velocity>
+          <acceleration>-0.434241 -0.002822 -0.059333 -0.0008 -0.84906 0.048061</acceleration>
+          <wrench>-0.015662 -0.000102 -0.00214 0 -0 0</wrench>
+        </link>
+        <link name='H1_F2_base_link'>
+          <pose frame=''>-0.010003 0.029018 1.01967 -1e-06 -1e-05 0.022403</pose>
+          <velocity>-0.000278 1e-06 -5e-06 -2e-06 -0.000852 0.000115</velocity>
+          <acceleration>-0.326604 0.001366 -0.005306 -0.001984 -0.851638 0.115005</acceleration>
+          <wrench>-0.057042 0.000239 -0.000927 0 -0 0</wrench>
+        </link>
+        <link name='H1_F2_link_1'>
+          <pose frame=''>-0.010788 0.064009 1.1365 0.070693 -1e-05 0.022403</pose>
+          <velocity>-0.000381 1e-06 -5e-06 -0.000101 -0.000854 0.000115</velocity>
+          <acceleration>-0.40437 0.004283 -0.005086 -0.103463 -0.860221 0.164247</acceleration>
+          <wrench>-0.033472 0.000355 -0.000421 0 -0 0</wrench>
+        </link>
+        <link name='H1_F2_link_2'>
+          <pose frame=''>-0.010694 0.059772 1.19635 0.063828 -9e-06 0.022404</pose>
+          <velocity>-0.000432 8e-06 -5e-06 2e-06 -0.000851 0.000115</velocity>
+          <acceleration>-0.448894 0.007563 -0.004673 0.003972 -0.862048 0.25742</acceleration>
+          <wrench>-0.016191 0.000273 -0.000169 0 -0 0</wrench>
+        </link>
+        <link name='H1_F3_base_link'>
+          <pose frame=''>0.034997 -0.025982 1.01967 6e-06 6e-06 -2.3338</pose>
+          <velocity>-0.000271 7e-06 3.4e-05 -2e-06 -0.000851 0.000142</velocity>
+          <acceleration>-0.31412 0.009774 0.0503 0.008374 -0.851447 -0.158663</acceleration>
+          <wrench>-0.054862 0.001707 0.008785 0 -0 0</wrench>
+        </link>
+        <link name='H1_F3_link_1'>
+          <pose frame=''>0.060293 -0.05017 1.1365 0.070701 6e-06 -2.3338</pose>
+          <velocity>-0.000367 1.1e-05 5.5e-05 -9.2e-05 -0.000946 0.000142</velocity>
+          <acceleration>-0.393353 0.012997 0.053022 -0.159298 -1.02116 0.133608</acceleration>
+          <wrench>-0.03256 0.001076 0.004389 0 -0 0</wrench>
+        </link>
+        <link name='H1_F3_link_2'>
+          <pose frame=''>0.057229 -0.047241 1.19635 0.063837 5e-06 -2.3338</pose>
+          <velocity>-0.000424 1.6e-05 5.2e-05 -0.000299 -0.001162 0.000142</velocity>
+          <acceleration>-0.448107 0.021656 0.048763 -0.302615 -1.16691 0.196341</acceleration>
+          <wrench>-0.016162 0.000781 0.001759 0 -0 0</wrench>
+        </link>
+        <link name='link_1'>
+          <pose frame=''>0 0 0.182 -1e-06 1e-06 1e-06</pose>
+          <velocity>0 0 0 0 -0 2e-05</velocity>
+          <acceleration>0.000187 0.000398 -3.4e-05 0.000441 -0.000254 0.020451</acceleration>
+          <wrench>0.000811 0.00172 -0.000149 0 -0 0</wrench>
+        </link>
+        <link name='link_2'>
+          <pose frame=''>0 0 0.345 2e-06 -2e-06 -0</pose>
+          <velocity>0 0 0 -1e-06 -0.000257 2.1e-05</velocity>
+          <acceleration>-0.000959 0.000482 0.004151 -0.001352 -0.257163 0.020701</acceleration>
+          <wrench>-0.009083 0.00457 0.039329 0 -0 0</wrench>
+        </link>
+        <link name='link_3'>
+          <pose frame=''>-1e-06 -1e-06 0.65 2e-06 -2e-06 1e-06</pose>
+          <velocity>-7.8e-05 1e-06 0 -2e-06 -0.000456 2.1e-05</velocity>
+          <acceleration>-0.079701 0.000879 0.005376 -0.001543 -0.456204 0.020587</acceleration>
+          <wrench>-0.326537 0.003603 0.022024 0 -0 0</wrench>
+        </link>
+        <link name='link_4'>
+          <pose frame=''>-0.010002 -1e-06 0.815 3e-06 -5e-06 2e-06</pose>
+          <velocity>-0.000153 1e-06 -5e-06 -2e-06 -0.000456 0.000126</velocity>
+          <acceleration>-0.176746 0.001409 -0.002711 -0.002134 -0.455764 0.125668</acceleration>
+          <wrench>-0.314431 0.002507 -0.004822 0 -0 0</wrench>
+        </link>
+        <link name='link_5'>
+          <pose frame=''>-0.010002 -2e-06 0.95 0 -9e-06 1e-06</pose>
+          <velocity>-0.000215 1e-06 -5e-06 -2e-06 -0.000851 0.000127</velocity>
+          <acceleration>-0.222998 0.002665 0.005594 -0.002251 -0.851098 0.126509</acceleration>
+          <wrench>-0.271834 0.003248 0.006819 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='kinect_ros'>
+        <pose frame=''>-0.272786 -2.60903 0.036 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-0.272786 -2.60903 0.036 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <model name='kinect_ros'>
+      <static>1</static>
+      <pose frame=''>-0.272786 -2.60903 0.036 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>0.1</mass>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.073 0.276 0.072</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://kinect/meshes/kinect.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <sensor name='camera' type='depth'>
+          <update_rate>20</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>1.0472</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>3</far>
+            </clip>
+          </camera>
+          <plugin name='camera_plugin' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>0.0</updateRate>
+            <cameraName>camera</cameraName>
+            <imageTopicName>/camera/depth/image_raw</imageTopicName>
+            <cameraInfoTopicName>/camera/depth/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>/camera/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+            <frameName>camera_link</frameName>
+            <pointCloudCutoff>0.05</pointCloudCutoff>
+            <distortionK1>0</distortionK1>
+            <distortionK2>0</distortionK2>
+            <distortionK3>0</distortionK3>
+            <distortionT1>0</distortionT1>
+            <distortionT2>0</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+          </plugin>
+        </sensor>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+  </world>
+</sdf>

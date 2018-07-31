@@ -4,7 +4,7 @@
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find vs060_gazebo)/urdf/vs060.gazebo" />
   <!-- Import transmission file -->
-  <xacro:include filename="$(find vs060_gazebo)/urdf/vs060.transmission-new.xacro" />
+  <xacro:include filename="$(find vs060_gazebo)/urdf/arm-transmission.xacro" />
   <!-- Import colors -->
   <xacro:include filename="$(find vs060_gazebo)/urdf/materials.xacro" />
   

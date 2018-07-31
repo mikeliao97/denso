@@ -1,9 +1,0 @@
-<launch>
-    <!-- Start Gazebo with VS060 and Action Trajectory Controllers -->
-    <include file="$(find vs060_gazebo)/launch/vs060_gazebo_new.launch" />
-
-
-    <!-- Start Moveit simulator -->
-    <!-- <include file="$(find vs060_newmoveit_config)/launch/myrobot_planning_execution.launch" /> -->
-
-</launch>

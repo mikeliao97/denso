@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <transmission name="H1_F1J1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F1J1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F1J1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="H1_F1J2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F1J2">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F1J2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="H1_F1J3_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F1J3">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F1J3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+   <transmission name="H1_F2J1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F2J1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F2J1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="H1_F2J2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F2J2">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F2J2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="H1_F2J3_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F2J3">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F2J3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+ 
+   <transmission name="H1_F3J1_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F3J1">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F3J1">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="H1_F3J2_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F3J2">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F3J2">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+  <transmission name="H1_F3J3_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="H1_F3J3">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="H1_F3J3">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>
+</robot> 

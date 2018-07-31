@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: vs060_gazebo
+    relative_path: urdf/arm-hand-gazebo.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/denso.srdf
+  CONFIG:
+    author_name: mike
+    author_email: mike@gmail.com
+    generated_timestamp: 1532984792

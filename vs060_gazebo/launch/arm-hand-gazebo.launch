@@ -1,14 +1,15 @@
 <launch>
+
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
-  <arg name="debug" default="false"/>
+  <arg name="debug" default="true"/>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find vs060_gazebo)/worlds/denso.world"/>
+    <arg name="world_name" value="$(find vs060_gazebo)/worlds/coke.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
@@ -17,22 +18,23 @@
   </include>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find vs060_gazebo)/urdf/vs060-gazebo-new.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find vs060_gazebo)/urdf/arm-hand-gazebo.xacro'" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 	args="-urdf -model denso -param robot_description"/>
 	
 
-   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find vs060_gazebo)/config/vs060_arm_controllers.yaml" command="load"/>
+   <!-- Load arm-hand controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find vs060_gazebo)/config/arm-hand-controllers.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-	output="screen" ns="/vs060" args="joint_state_controller position_trajectory_controller"/>
+	output="screen" ns="/vs060" args="joint_state_controller arm_position_trajectory_controller hand_position_trajectory_controller"/>
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
 	respawn="false" output="screen">
   </node>
+ 
 </launch>
