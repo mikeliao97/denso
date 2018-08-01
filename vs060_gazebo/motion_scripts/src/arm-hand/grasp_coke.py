@@ -106,7 +106,7 @@ def reset_world():
     time.sleep(0.1)
     __unpause_physics.call()
 
-    __reset_world.call()
+    #__reset_world.call()
     spawn_extras()
 
 def get_object_pose():
@@ -196,5 +196,6 @@ def pick():
 
 if __name__ == '__main__':
     rospy.loginfo('Starting')
+    spawn_extras()
     pick()
     reset_world()
